@@ -1,0 +1,147 @@
+@import 'variables';
+@import 'reset';
+@import 'base';
+@import 'card';
+
+
+
+.container{
+    height: 100vh;
+    width: 100%;
+    background-color:$fundo;
+
+   
+}
+
+
+.top-box{
+    background-color:$vermelho;
+    color: $texto-claro;
+    width:300px;
+    height: 200px;
+    @include box-shadow(olive);
+
+    @include make-bold(true);
+
+    @include text-effect(warning);
+}
+
+/*================
+LAÇOS DE REPETIÇAO
+===============*/
+
+@for $i from 1 through 5{
+    .text-#{$i}{
+        font-size: 15 * $i;
+    }
+}
+
+
+/*==================
+ LAÇOS FOREACH
+====================*/
+// $colors: (color1: teal, color2: royalblue, color3: salmon);
+
+$colors: royalblue,olive,magenta;
+
+@each  $color in $colors {
+    .#{$color}-text {color: $color}
+}
+
+$primary:royalblue;
+$secondary:magenta;
+
+/*======================
+ PEGANDO A CHAVE E O VALOR   
+Pegar a chave da cor pra usar
+na classe
+=======================*/
+$cores:( primary:$primary, secondary:$secondary);
+
+@each $key, $cor in $cores{
+    .#{$key}-color{ color:$cor;}
+}
+
+
+
+
+
+/*==================
+
+ FUNCOES
+===================*/
+
+$demo-color: red;
+
+.lucid{
+    color: invert($demo-color);
+    color: darken($demo-color,20);
+}
+
+
+@function set-text-color($color){
+    @if(lightness($color) > 70){
+      @return #333;
+    }@else{
+     @return #fff;
+    }
+}
+
+
+
+/*==================
+ HERANÇA
+===================*/
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexy{
+    @extend .flex;
+    flex-direction: column;
+    background-color: darken(orange,15);
+}
+
+
+/*=================
+CRIANDO REFERENCIAS
+
+================*/
+h2{
+    color: deeppink !important;
+    cursor:pointer;
+
+    &:hover{
+        color: #fff !important;
+    }
+}
+
+
+
+
+
+/*=================
+MEDIA QUERIES MIXIN
+================*/
+
+@mixin mq($arg){
+    @media screen and (max-width: $arg){
+        @content;
+    }
+}
+
+.text-box{
+    @include mq(700px){
+        // border: 2px solid royalblue;
+        background-color:gold;
+        border-radius: 20px;
+        padding: 20px;
+    }
+}
+
+
+
+@debug "ola elson";

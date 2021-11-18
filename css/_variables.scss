@@ -1,0 +1,48 @@
+// cores
+$primary: #326dee;
+$secondary: #1ac888;
+$error: #d32752;
+$info: #f6c31c;
+
+// espaçamento
+$base-padding: 0.75rem;
+$base-margin: 0.75rem;
+
+// borders
+$base-border-thickness: 1px;
+$base-border-radius: 20px;
+
+// font size
+$base-font-size: 1rem;
+$font-size-sm: $base-font-size * 0.75;
+$font-size-lg: $base-font-size * 1.5;
+$font-size-xlg: $base-font-size * 2;
+$font-size-xxlg: $base-font-size * 3;
+
+
+
+
+// box shadow
+$base-box-shadow: 4px 3px 5px rgba(0,0,0,0.1);
+
+
+.error{
+    color: $error;
+    border-color: $error;
+    border-style: solid;
+    margin: $base-margin;
+    padding: $base-padding;
+    border-radius: $base-border-radius;
+    border-width: $base-border-thickness;
+}
+
+.notification{
+    color:$secondary;
+    border-color: $secondary;
+    border-style: solid;
+
+    margin: $base-margin;
+    padding: $base-padding;
+    border-radius: $base-border-radius;
+    border-width: $base-border-thickness;
+}
